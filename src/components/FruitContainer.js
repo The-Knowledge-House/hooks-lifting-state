@@ -6,8 +6,7 @@ const FruitContainer = (props) => {
   // initialize the fruit list to the full list passed in props
   const [fruitsToDisplay, setFruitsToDisplay] = useState(props.fruits);
   // initialize the filter value to an empty string
-  const [filterValue, setFilterValue] = useState("");
-  console.log(props)
+  console.log(props);
   //I'll need a method to update the state when the filter value
   // changes. This method will store the filter state
   // and filter the list of fruits to display. I'll pass
@@ -19,23 +18,18 @@ const FruitContainer = (props) => {
     setFruitsToDisplay((_prevState) => {
       //remove fruits that don't contain the filter value
       const filteredFruitList = props.fruits.filter((fruit) => {
-        fruit.toLowerCase().includes(filterValue.toLowerCase());
+        return fruit.toLowerCase().includes(filterValue.toLowerCase());
       });
       //return new state with the filter fruit list and the new value
       // of the filter
       // setFilterValue([..._prevState.filterValue, filteredFruitList])
-      return {
-        filteredFruitList
-       
-      };
+      return filteredFruitList;
     });
   };
 
-  
-
-   useEffect(() => {
+  useEffect(() => {
     console.log("do something", fruitsToDisplay);
-   }, [fruitsToDisplay]);
+  }, [fruitsToDisplay]);
 
   return (
     <div>
