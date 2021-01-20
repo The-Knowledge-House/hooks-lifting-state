@@ -1,12 +1,11 @@
-
-
-const FruitList = props => {
-  console.log(props, 'fruitlist')
+const FruitList = (props) => {
   return (
-    < ul >
-      {props.fruits.map(fruit => <li>{fruit}</li>)}
+    <ul>
+      {props.fruits.map((fruit) => (
+        <li>{fruit}</li>
+      ))}
     </ul>
-  )
-}
+  );
+};
 
-export default FruitList
+export default FruitList;
